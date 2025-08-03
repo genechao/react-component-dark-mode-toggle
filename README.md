@@ -2,6 +2,8 @@
 
 A simple demo showing both a global and component-scoped theme toggle for light mode and dark mode in React (v19) and Tailwind CSS (v4).
 
+Live Demo: [https://genechao.github.io/react-component-dark-mode-toggle/](https://genechao.github.io/react-component-dark-mode-toggle/)
+
 ## Getting Started
 
 1. Install the dependencies:
