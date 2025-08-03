@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/*
+   Configure dark mode for Tailwind v4 to work with Shadcn's class-based approach
+   You can use this approach in any Tailwind v4 project (with or without Shadcn)
+   by including the line below and implementing a ThemeProvider that toggles the
+   `.dark` class on <html>.
+ */
+@custom-variant dark (&:is(.dark *));
+
+@import "./components/component-theme-toggle/styles.css";

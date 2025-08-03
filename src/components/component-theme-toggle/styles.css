@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --component-theme-toggle-primary: #e2e8f0; /* slate-200 */
+    --component-theme-toggle-primary-foreground: #0f172a; /* slate-900 */
+  }
+  [data-component-theme-toggle="dark"] {
+    --component-theme-toggle-primary: #1e293b; /* slate-800 */
+    --component-theme-toggle-primary-foreground: #f1f5f9; /* slate-100 */
+  }
+}
+
+@custom-variant component-theme-toggle-dark {
+  &:where([data-component-theme-toggle="dark"] *) {
+    @slot;
+  }
+}
+@custom-variant component-theme-toggle-light {
+  &:where([data-component-theme-toggle="light"] *) {
+    @slot;
+  }
+}
+
+@layer components {
+  /*
+    These classes are in @layer components (not base) so they can be overridden by utility classes in your markup.
+    These classes are used to set the color and background-color for the component-scoped theme toggle.
+    Use these classes to ensure the toggle always has the correct color scheme, regardless of global theme.
+    The transition-colors utility is included for smooth color changes.
+  */
+  /*
+    Note: The light and dark classes use the same CSS variable references for background and text color.
+    The actual colors are set above in @layer base and change automatically depending on the value of [data-component-theme-toggle].
+    This avoids duplicating color values and keeps the theme logic centralized.
+  */
+  .component-theme-toggle-light {
+    @apply transition-colors;
+    background-color: var(--component-theme-toggle-primary);
+    color: var(--component-theme-toggle-primary-foreground);
+  }
+  .component-theme-toggle-dark {
+    @apply transition-colors;
+    background-color: var(--component-theme-toggle-primary);
+    color: var(--component-theme-toggle-primary-foreground);
+  }
+}
